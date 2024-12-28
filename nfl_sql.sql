@@ -1,11 +1,11 @@
 CREATE TABLE games (
     GameID INT AUTO_INCREMENT PRIMARY KEY,  
-	FullTeam VARCHAR(22) NOT NULL,          
+    FullTeam VARCHAR(22) NOT NULL,          
     Tm VARCHAR(4) NOT NULL,     
     Coach VARCHAR(40) NOT NULL,
     Stadium VARCHAR(40) NULL,
     Surface VARCHAR(11) NULL,
-	Roof VARCHAR(30) NULL,
+    Roof VARCHAR(30) NULL,
     season INT NOT NULL,                    
     Game_Week INT NOT NULL,                      
     Game_Date DATE NOT NULL,                     
@@ -33,7 +33,7 @@ CREATE TABLE games (
     Penalties INT,
     Penalty_Yards INT,
     Won_Toss VARCHAR(35),
-	Won_OT_Toss VARCHAR(35),
+    Won_OT_Toss VARCHAR(35),
     HA INT,
     Record VARCHAR(6)
 );
@@ -50,7 +50,7 @@ CREATE TABLE pbp (
     Detail TEXT NULL,
     
     Away_GameID INT NOT NULL,               -- FK to games table
-	Home_GameID INT NOT NULL,               -- FK to games table
+    Home_GameID INT NOT NULL,               -- FK to games table
     FOREIGN KEY (Away_GameID) REFERENCES games(GameID),
     FOREIGN KEY (Home_GameID) REFERENCES games(GameID)
 );
@@ -59,7 +59,7 @@ CREATE TABLE player_games (
     PlayerGameID INT AUTO_INCREMENT PRIMARY KEY,
     Player VARCHAR(50) NOT NULL,    
     Pos VARCHAR(4) NOT NULL,        
-	Num INT,                        
+    Num INT,                        
     Pct INT,                        
     Num_1 INT,                      
     Pct_1 INT,                      
@@ -67,7 +67,7 @@ CREATE TABLE player_games (
     Pct_2 INT,						
     Starter INT,					
     
-	GameID INT NOT NULL,            -- FK to games table
+    GameID INT NOT NULL,            -- FK to games table
     FOREIGN KEY (GameID) REFERENCES games(GameID)
 );
 
@@ -156,8 +156,8 @@ CREATE TABLE pass (
 );
 
 CREATE TABLE kicking (
-	KickID INT AUTO_INCREMENT PRIMARY KEY,
-	XPM INT NULL,
+    KickID INT AUTO_INCREMENT PRIMARY KEY,
+    XPM INT NULL,
     XPA INT NULL,
     FGM INT NULL,
     FGA INT NULL,
@@ -172,7 +172,7 @@ CREATE TABLE kicking (
 
 
 CREATE TABLE defense (
-	defID INT AUTO_INCREMENT PRIMARY KEY,
+    defID INT AUTO_INCREMENT PRIMARY KEY,
     Ints INT,               
     Tgt INT,                               
     Cmp INT,                               
