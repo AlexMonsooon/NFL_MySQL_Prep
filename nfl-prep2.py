@@ -29,13 +29,13 @@ def adjust_team_spr(row):
         return row['Spread']
     
 ###############################################################################    
+# if the spread is +-3 and one Team scores 24 and the other 21 both win (1)
 def check_spread(row):
-    if (row['TeamSpr'] == row['FullTeam']):
-        ### spread is negative -8
-        return 1 if -(row['PF'] - row['PA']) <= row['Spread'] else 0
+    if row['TeamSpr'] == row['FullTeam']:
+        return 1 if (row['PF'] - row['PA']) >= -row['Spread'] else 0
     else:
-        ## spread is positive +8
-        return 1 if (row['PF'] - row['PA']) >= row['Spread'] else 0
+        return 1 if (row['PF'] - row['PA']) >= -row['Spread'] else 0
+    
 ###############################################################################
 # Converting ToP, Time.1, Time from x:x to integers
 def convert_to_seconds(time_str, desc=0):
